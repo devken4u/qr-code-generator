@@ -6,7 +6,6 @@ export default function QrCodeGenerator() {
   const [link, setLink] = useState("");
   const [qrCodeValue, setQRCodeValue] = useState("");
   const [fgColor, setFgColor] = useState("#000000");
-  const [bgColor, setBgColor] = useState("#ffffff");
   const QRCodeCapture = useRef(null);
 
   function generate() {
@@ -54,7 +53,7 @@ export default function QrCodeGenerator() {
       </div>
       <div className="flex justify-center mt-4">
         <div className="border-4 border-black p-4" ref={QRCodeCapture}>
-          <QRCode value={qrCodeValue} bgColor={bgColor} fgColor={fgColor} />
+          <QRCode value={qrCodeValue} fgColor={fgColor} />
         </div>
       </div>
       <div className="flex items-center flex-col gap-2 mt-4">
@@ -67,17 +66,6 @@ export default function QrCodeGenerator() {
             id="foreground"
             type="color"
             value={fgColor}
-          />
-        </div>
-        <div className="flex items-center gap-4">
-          <label className="font-semibold text-2xl" htmlFor="background">
-            Background:
-          </label>
-          <input
-            onChange={(e) => setBgColor(e.target.value)}
-            id="background"
-            type="color"
-            value={bgColor}
           />
         </div>
       </div>
